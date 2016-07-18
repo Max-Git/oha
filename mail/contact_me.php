@@ -22,8 +22,11 @@ $to = 'maxime@onehundredacorns.com';
 $email_subject = "Contact depuis onehundredacorns de :  $name";
 $email_body = "<h2>Vous avez reçu un message depuis le formulaire de contact.</h2><br/>"."<h3>Details:</h3></br><b>Nom:</b> $name<br/><b>Email:</b> $email_address<br/><b>Tel:</b> $phone<br/><b>Message:</b><br/>$message";
 
+$SGApiKey = getenv("SGApiKey");
 
-$sendgrid = new SendGrid("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");
+echo "<script>console.log('------------> SGApiKey : " . $SGApiKey . "' );</script>";
+
+$sendgrid = new SendGrid($SGApiKey);
 $email    = new SendGrid\Email();
 
 $email->addTo($to)
