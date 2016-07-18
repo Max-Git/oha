@@ -24,8 +24,6 @@ $email_body = "<h2>Vous avez reçu un message depuis le formulaire de contact.</
 
 $SGApiKey = getenv("SGApiKey");
 
-echo "SGApiKey : " . $SGApiKey;
-
 $sendgrid = new SendGrid($SGApiKey);
 $email    = new SendGrid\Email();
 
