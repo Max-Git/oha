@@ -1,6 +1,8 @@
 <?php
 require("./sendgrid-php/sendgrid-php.php");
 
+if(!empty($_POST['website'])) die();
+
 // Check for empty fields
 if(empty($_POST['name'])      ||
    empty($_POST['email'])     ||
