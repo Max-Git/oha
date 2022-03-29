@@ -6,4 +6,8 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'BaseSendGridClientInterface' => $baseDir . '/lib/BaseSendGridClientInterface.php',
+    'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
+    'SendGrid' => $baseDir . '/lib/SendGrid.php',
+    'TwilioEmail' => $baseDir . '/lib/TwilioEmail.php',
 );
