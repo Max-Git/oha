@@ -26,14 +26,14 @@ $email_body = "<h2>Vous avez reçu un message depuis le formulaire de contact.</
 
 $SGApiKey = getenv("SGApiKey");
 
-$email = new \SendGrid\Mail\Mail(); 
+$email = new Mail(); 
 $email->setFrom("contact@onehundredacorns.com", "Contact OHA");
 $email->setSubject($email_subject);
 $email->addTo($to, "Maxime");
-$email->addContent(
-    "text/html", $email_body"
-);
-$sendgrid = new SendGrid($SGApiKey);
+$email->addContent("text/html", $email_body);
+
+$sendgrid = new \SendGrid($SGApiKey);
+
 
 $response = $sendgrid->send($email);
 return true;
