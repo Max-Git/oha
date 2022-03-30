@@ -1,5 +1,7 @@
 <?php
-require("./sendgrid-php/sendgrid-php.php");
+require_once './sendgrid-php/sendgrid-php.php';
+use SendGrid\Mail\Mail;
+
 
 if(!empty($_POST['website'])) die();
 
@@ -34,8 +36,15 @@ $email->addContent("text/html", $email_body);
 
 $sendgrid = new \SendGrid($SGApiKey);
 
+try {
+    $response = $sendgrid->send($email);
+    print $response->statusCode() . "\n";
+    print_r($response->headers());
+    print $response->body() . "\n";
+} catch (Exception $e) {
+    echo 'Caught exception: '.  $e->getMessage(). "\n";
+}
 
-$response = $sendgrid->send($email);
 return true;
 
 ?>
